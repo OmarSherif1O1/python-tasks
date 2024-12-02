@@ -17,4 +17,20 @@ def get_longest_title(books):
             longest_title = book[0:current_book_title_index]
     return longest_title
 
+def list_unique_authors(books):
+    authors_dict = {}
+    for book in books:
+        start_of_author = book.find('by ')
+        end_of_author = book.find('(')
+        authors = book[start_of_author+3 : end_of_author-1]
+        if authors in authors_dict:
+            authors_dict[authors] += 1
+        else:
+            authors_dict[authors] = 1 
+    return authors_dict
+
+        
+
+
+
       
