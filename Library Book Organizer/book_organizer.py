@@ -2,6 +2,8 @@ from helpers import (
     count_books_by_genre,
     get_longest_title,
     list_unique_authors,
+    search_by_keyword,
+    books_by_author,
 )
 
 
@@ -38,9 +40,15 @@ while True:
                     print ("-",authors)
             elif user_input == 0:
                 break
-    user_input = int(input("what opreation u need to do \n 1:Catalog Analysis \n 2:Catalog Transformation \n 0:to exit \n"))
-    if user_input == 0:
-        break
-print("thx for using the app xd")
+    elif user_input == 2:
+        while True:
+            user_input = int(input("do u want \n 1:Search by Keyword \n 2:Convert Titles to Uppercase \n 3:Reorganize by Author \n 0:to exit this menu \n"))
+            if user_input == 1:
+                print('Books matching: ',search_by_keyword(books))
 
-
+            elif user_input == 2:
+                uppercase_books = list(map(str.upper, books))
+                for book in uppercase_books:
+                    print(f"• {book}")
+            elif user_input == 3:
+                print('a list of authors and there books for u \n',books_by_author(books))
